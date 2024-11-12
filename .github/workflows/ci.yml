@@ -16,6 +16,7 @@ jobs:
         run: make
       - name: Simple Test
         run: |
+          openssl req -nodes -new -x509 -keyout private.key -out cert.crt -subj "/C=RU/ST=Moscow/L=Moscow/O=Codeby/OU=School/CN=codeby.local"
           ./dummy-server.bin &
           sleep 3
           curl -s -k https://localhost:8443
